@@ -1,6 +1,6 @@
 "use client"
 
-import { BarChart } from "./ui/barChart"
+import { BarChart } from "../ui/barChart"
 
 const data = [
   {
