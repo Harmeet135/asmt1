@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Calendar, Star, ChevronDown } from "lucide-react"
+import { Calendar, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar as CalendarComponent } from "@/components/ui/calendar"
@@ -27,10 +27,9 @@ export function TimePeriodSelector() {
       </div>
 
       <div className="flex gap-2 flex-wrap">
-        {periods.map((period) => (
-          <div  className={`${selectedPeriod === period.id ? " bg-background" : ""} rounded-2xl`}>
+        {periods.map((period , index) => (
+          <div key={index}  className={`${selectedPeriod === period.id ? " bg-background" : ""} rounded-2xl`}>
           <Button
-            key={period.id}
           variant="outline"
             size="sm"
             onClick={() => setSelectedPeriod(period.id)}

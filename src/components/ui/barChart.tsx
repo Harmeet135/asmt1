@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client"
 
 import { Bar, CartesianGrid, Line, ComposedChart, ResponsiveContainer, XAxis, YAxis, Legend , Tooltip} from "recharts"
