@@ -18,7 +18,6 @@ export function TimePeriodSelector() {
   const [selectedPeriod, setSelectedPeriod] = useState("3months")
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [selectedDate, setSelectedDate] = useState<Date>()
-
   return (
     <div className="space-y-4 border-2 border-app-secondary p-4 rounded-2xl h-[11.8rem]">
       <div className="flex items-center justify-between text-sm text-muted-foreground">
@@ -27,29 +26,29 @@ export function TimePeriodSelector() {
       </div>
 
       <div className="flex gap-2 flex-wrap">
-        {periods.map((period , index) => (
-          <div key={index}  className={`${selectedPeriod === period.id ? " bg-background" : ""} rounded-2xl`}>
-          <Button
-          variant="outline"
-            size="sm"
-            onClick={() => setSelectedPeriod(period.id)}
-            className={`${selectedPeriod === period.id ? " text-primary-gradient" : "text-secondary" } rounded-2xl`}
-          >
-            {period.label}
-            {period.id === "1year" &&  <Image src="/crown.svg" alt="Star" width={16} height={16} />}
-          </Button>
+        {periods.map((period, index) => (
+          <div key={index} className={`${selectedPeriod === period.id ? " bg-background" : ""} rounded-2xl`}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSelectedPeriod(period.id)}
+              className={`${selectedPeriod === period.id ? " text-primary-gradient" : "text-secondary"} rounded-2xl`}
+            >
+              {period.label}
+              {period.id === "1year" && <Image src="/crown.svg" alt="Star" width={16} height={16} />}
+            </Button>
           </div>
         ))}
 
         <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-          <PopoverTrigger asChild>
+          <PopoverTrigger>
             <Button variant="outline" size="sm" className="gap-2 bg-transparent">
               <Calendar className="h-3 w-3" />
               Custom
               <ChevronDown className="h-3 w-3" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 z-50" align="start">
             <CalendarComponent
               mode="single"
               selected={selectedDate}
